@@ -9,4 +9,4 @@ const t=(t,a)=>Math.floor(Math.random()*(a-t+1)+t),a=a=>{const n=t(200,500);retu
 },{}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/task1"),require("./js/task2"),require("./js/task3");
 },{"./sass/main.scss":"clu1","./js/task1":"u2QS","./js/task2":"n9ff","./js/task3":"T9OW"}]},{},["Focm"], null)
-//# sourceMappingURL=/parcel-project-template/src.9fc18620.js.map
+//# sourceMappingURL=/goit-js-hw-11-promisification/src.b5013bf9.js.map
