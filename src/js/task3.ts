@@ -1,12 +1,18 @@
 // Перепиши функцию `makeTransaction()` так, чтобы она не использовала
 // callback-функции `onSuccess` и `onError`, а принимала всего один параметр
 // `transaction` и возвращала промис.
+type Randomize = (a: number, b: number) => number
+interface Transaction {
+  id: number,
+  amount?: number,
+  delay?: number 
+};
 
-const randomIntegerFromInterval = (min, max) => {
+const randomIntegerFromInterval:Randomize = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
-const makeTransaction = transaction => {
+const makeTransaction = (transaction: Transaction) => {
   const delay = randomIntegerFromInterval(200, 500);
 
   return new Promise((resolve, reject) => {
@@ -22,11 +28,11 @@ const makeTransaction = transaction => {
   });
 };
 
-const logSuccess = ({ id, delay }) => {
+const logSuccess = ({ id, delay }: Transaction) => {
   console.log(`Transaction ${id} processed in ${delay}ms`);
 };
 
-const logError = id => {
+const logError = (id: number) => {
   console.warn(`Error processing transaction ${id}. Please try again later.`);
 };
 
