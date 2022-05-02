@@ -1,15 +1,21 @@
 // Перепиши функцию `toggleUserState()` так, чтобы она не использовала
 // callback-функцию `callback`, а принимала всего два параметра `allUsers` и
 // `userName` и возвращала промис.
+interface User {
+  name: string,
+  active : boolean
+}
+type Users = User[]
 
-const users = [
+
+const users : Users = [
   { name: 'Mango', active: true },
   { name: 'Poly', active: false },
   { name: 'Ajax', active: true },
   { name: 'Lux', active: false },
 ];
 
-const toggleUserState = (allUsers, userName) => {
+const toggleUserState = (allUsers: Users, userName : string) => {
   return new Promise(resolve =>
     resolve(
       allUsers.map(user => (user.name === userName ? { ...user, active: !user.active } : user)),
@@ -17,13 +23,8 @@ const toggleUserState = (allUsers, userName) => {
   );
 };
 
-const logger = updatedUsers => console.table(updatedUsers);
+const logger = (updatedUsers: Users) => console.table(updatedUsers);
 
-/*
- * Сейчас работает так
- */
-toggleUserState(users, 'Mango', logger);
-toggleUserState(users, 'Lux', logger);
 
 /*
  * Должно работать так

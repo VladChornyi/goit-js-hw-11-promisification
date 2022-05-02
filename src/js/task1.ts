@@ -1,4 +1,4 @@
-const delay = ms => {
+const delay =( ms: number) => {
   const promise = new Promise(resolve => {
     setTimeout(() => {
       resolve(ms);
@@ -7,7 +7,7 @@ const delay = ms => {
   return promise;
 };
 
-const logger = time => console.log(`Resolved after ${time}ms`);
+const logger = (time:unknown) => console.log(`Resolved after ${time}ms`);
 
 // Вызовы функции для проверки
 delay(2000).then(logger); // Resolved after 2000ms
